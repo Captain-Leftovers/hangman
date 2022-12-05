@@ -1,0 +1,18 @@
+.container {
+    background-color: rgb(244, 205, 243);
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between; 
+    padding: .8rem;   
+    align-items: center;
+}
+
+.message {
+    background-color: rgb(225, 130, 14);
+    font-size: 2.5rem;
+}
+.word {
+    background-color: brown;
+    font-size: 3.5rem;
+}
