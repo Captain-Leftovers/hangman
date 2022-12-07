@@ -1,5 +1,7 @@
 function GuessingWord () {
 
-    return <div></div>
+    return <div> 
+        word word  word
+    </div>
 }
 export default GuessingWord

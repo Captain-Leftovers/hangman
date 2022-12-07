@@ -1,9 +1,9 @@
-import Graphic from "./components/Graphic/Graphic"
 import Letters from "./components/Letters/Letters"
 import AppCSS from "./App.module.css"
 import { useState } from "react"
 import archive from "./assets/simpleWords.json"
 import GuessingWord from "./components/GuessingWord/GuessingWord"
+import HangmanSvg from "./components/HangmanSvg/HangmanSvg"
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className={AppCSS.container}>
       <div >starting / loosing message</div>
-      <Graphic/>
+      <HangmanSvg/>
       <GuessingWord/>
       <Letters/>
     </div>
