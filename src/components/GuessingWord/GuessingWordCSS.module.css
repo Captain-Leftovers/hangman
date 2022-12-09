@@ -1,0 +1,20 @@
+.wordContainer {
+    display:flex;
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+    gap:1rem;
+}
+
+.letter {
+    border-bottom:solid .7rem black;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}

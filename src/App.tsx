@@ -13,6 +13,9 @@ function App() {
   })
 
   const [usedLetters, setUsedLetters] = useState<string[]>([]) 
+
+
+
   return (
     <div className={AppCSS.container}>
       <div >starting / loosing message</div>
