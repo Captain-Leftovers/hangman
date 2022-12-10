@@ -1,17 +1,18 @@
 .keyboard {
-    background-color: aqua;
+    background-color: transparent;
     display: flex;
     /* grid-template-columns:repeat(13, minmax(50px, 1fr)); */
     gap:0.5rem;
     flex-wrap:wrap;
     justify-content: center;
     height: auto;
-    width:40%;
+    width:99%;
+    max-width: 800px;
 
 }
 
 .keys {
-    background-color:rgb(161, 212, 149);
+    background-color:seashell;
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
@@ -20,3 +21,9 @@
     min-width:50px;
     min-height: 50px;
 }
+
+.keys:hover,
+.keys:focus {
+    background-color:rgba(206, 164, 248, 0.676);
+    color: seashell;
+}                               
