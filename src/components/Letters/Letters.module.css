@@ -12,7 +12,7 @@
 }
 
 .keys {
-    background-color:seashell;
+    background-color:#bb9457;
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
@@ -24,6 +24,6 @@
 
 .keys:hover,
 .keys:focus {
-    background-color:rgba(206, 164, 248, 0.676);
-    color: seashell;
+    background-color:#99582a;
+    color: #ffe6a7 ;
 }                               

@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className={AppCSS.container}>
-      <div >starting / loosing message</div>
+      <div>STARTING / LOOSING</div>
       <HangmanSvg/>
       <GuessingWord/>
       <Letters/>
