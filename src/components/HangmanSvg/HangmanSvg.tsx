@@ -1,4 +1,4 @@
-// import HangmanSVG from "./HangmanSVG.module.css"
+
 
 function HangmanSvg() {
 // TODO fix svg with "-" add capital letter
@@ -10,8 +10,8 @@ const sadMouth = <path id="sadMouth" d="M103 65.9927C106.279 63.4315 108.258 63.
 const mouth = gameIsActive ? happyMouth : sadMouth
 
     return (
-    <div /* className={HangmanSVG.container} */>
- <svg width="60vw" height="70vh" viewBox="0 0 173 300" fill="none">
+    
+ <svg width="60vw" height="60vh" viewBox="0 0 173 300" fill="none">
 <g id="allHangmanGraph">
 <g id="structure">
 <g id="Group">
@@ -205,7 +205,7 @@ const mouth = gameIsActive ? happyMouth : sadMouth
 </clipPath>
 </defs>
 </svg>
-    </div>
+   
     )
 }
 
