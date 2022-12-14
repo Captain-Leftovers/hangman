@@ -1,13 +1,20 @@
-import LetterCSS from "./Letters.module.css"
+import LettersCSS from "./Letters.module.css"
 
 const lettersArr:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-function Letters() {
+type LettersProps = {
+    correctLetters:string[]
+    incorrectLetters:string[]
+    addLetter:(letter:string)=> void
+}
+
+
+function Letters({correctLetters, incorrectLetters, addLetter}:LettersProps) {
 
     return (
-       <div className={LetterCSS.keyboard}>
+       <div className={LettersCSS.keyboard}>
             {lettersArr.map((key)=>{
-                return <button  className={`${LetterCSS.keys}`} key={key}>{key}</button>
+                return <button onClick={()=>addLetter(key)} className={`${LettersCSS.keys}`} key={key}>{key}</button>
             })}
        </div>
     )
