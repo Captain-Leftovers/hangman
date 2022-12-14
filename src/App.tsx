@@ -9,8 +9,9 @@ import HangmanSvg from "./components/HangmanSvg/HangmanSvg"
 function App() {
   
   const [wordFromArchive, setWordFromArchive] = useState(() => {
-     return archive[Math.floor(Math.random() * archive.length)]
+     return archive[Math.floor(Math.random() * archive.length)].toLowerCase()
   })
+  
   
   const [usedLetters, setUsedLetters] = useState<string[]>([]) 
 
@@ -19,6 +20,7 @@ function App() {
   const correctLetters = usedLetters.filter(letter => wordFromArchive.includes(letter)); 
 
   const addLetter= useCallback((letter:string) => {
+    // letter = letter.toLowerCase();
     if (usedLetters.includes(letter)) return
 
     setUsedLetters(oldLetters => [...oldLetters, letter])
@@ -30,9 +32,9 @@ function App() {
        const keyboardHandler = (e:KeyboardEvent) =>{
        let letter:string = e.key
 
-       if(!letter.match(/^[a-z]$/))  return
+       if(!letter.match(/^[a-zA-Z]$/))  return
        e.preventDefault()
-       addLetter(letter)
+       addLetter(letter.toLowerCase())
        
     }
 

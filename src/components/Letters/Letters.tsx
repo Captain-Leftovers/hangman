@@ -14,7 +14,9 @@ function Letters({correctLetters, incorrectLetters, addLetter}:LettersProps) {
     return (
        <div className={LettersCSS.keyboard}>
             {lettersArr.map((key)=>{
-                return <button onClick={()=>addLetter(key)} className={`${LettersCSS.keys}`} key={key}>{key}</button>
+                const isActive = correctLetters.includes(key);
+                const isInactive = incorrectLetters.includes(key)
+                return <button onClick={()=>addLetter(key)} className={`${LettersCSS.keys} ${isActive ? LettersCSS.active : ""} ${isInactive ? LettersCSS.inactive : ""}`} key={key}>{key}</button>
             })}
        </div>
     )

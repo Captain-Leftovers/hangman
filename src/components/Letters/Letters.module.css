@@ -22,22 +22,22 @@
     min-height: 50px;
     border: 2px solid black;
     cursor:pointer;
-    
+    background-color: #884b04;
 }
 
 .keys.active {
-    background-color:#bb9457;
+    background-color:#7f591a;
    
 }
 
 .keys.inactive {
-    background-color:#bb9457;
-    opacity: .5;
+    background-color:#c7a164;
+    opacity: .2;
 }
 
 
 .keys:hover:not(:disabled),
 .keys:focus:not(:disabled) {
-    background-color:#99582a;
+    background-color:#b85005;
     color: #ffe6a7 ;
 }                               
