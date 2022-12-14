@@ -5,6 +5,7 @@
     text-transform: uppercase;
     font-family: monospace;
     gap:1rem;
+    cursor:default;
 }
 
 .letter {

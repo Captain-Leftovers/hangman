@@ -8,11 +8,11 @@
     height: auto;
     width:99%;
     max-width: 800px;
+    
 
 }
 
 .keys {
-    background-color:#bb9457;
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
@@ -20,10 +20,24 @@
     align-self:flex-end;
     min-width:50px;
     min-height: 50px;
+    border: 2px solid black;
+    cursor:pointer;
+    
 }
 
-.keys:hover,
-.keys:focus {
+.keys.active {
+    background-color:#bb9457;
+   
+}
+
+.keys.inactive {
+    background-color:#bb9457;
+    opacity: .5;
+}
+
+
+.keys:hover:not(:disabled),
+.keys:focus:not(:disabled) {
     background-color:#99582a;
     color: #ffe6a7 ;
 }                               

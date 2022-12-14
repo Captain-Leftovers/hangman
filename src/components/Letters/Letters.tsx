@@ -7,7 +7,7 @@ function Letters() {
     return (
        <div className={LetterCSS.keyboard}>
             {lettersArr.map((key)=>{
-                return <button className={LetterCSS.keys} key={key}>{key}</button>
+                return <button  className={`${LetterCSS.keys}`} key={key}>{key}</button>
             })}
        </div>
     )
