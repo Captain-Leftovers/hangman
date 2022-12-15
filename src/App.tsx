@@ -18,10 +18,13 @@ function App() {
   const incorrectLetters = usedLetters.filter((letter) => !wordFromArchive.includes(letter));
 
   const correctLetters = usedLetters.filter(letter => wordFromArchive.includes(letter)); 
-
+  const gameIsLost = incorrectLetters.length >= 6;
+  const gameIsWon = wordFromArchive.split("").every((letter)=> usedLetters.includes(letter));
+  const disabled = gameIsLost || gameIsWon;
+  
   const addLetter= useCallback((letter:string) => {
     // letter = letter.toLowerCase();
-    if (usedLetters.includes(letter)) return
+    if (usedLetters.includes(letter) || gameIsLost || gameIsWon) return
 
     setUsedLetters(oldLetters => [...oldLetters, letter])
   },[usedLetters])
@@ -45,15 +48,22 @@ function App() {
     }
   }, [usedLetters])
 
+
+
   return (
     <div className={AppCSS.container}>
-      <div>STARTING / LOOSING</div>
+      <div className={AppCSS.message}>
+        {gameIsWon && "Congratulations You Guessed Correctly"}
+        {gameIsLost && "Better Luck Next Time"}
+      </div>
       <HangmanSvg numberWrongLetters={incorrectLetters.length}/>
-      <GuessingWord usedLetters={usedLetters} wordFromArchive={wordFromArchive} />
+      <GuessingWord usedLetters={usedLetters} showWord={gameIsLost}
+        wordFromArchive={wordFromArchive} />
       <Letters 
       correctLetters={correctLetters} 
       incorrectLetters={incorrectLetters}
       addLetter={addLetter}
+      disabled={disabled}
       />
     </div>
   )

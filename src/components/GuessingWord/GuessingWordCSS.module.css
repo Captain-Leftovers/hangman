@@ -19,3 +19,7 @@
 .visible {
     visibility: visible;
 }
+
+.wrongLetters {
+    border-color: red;
+}

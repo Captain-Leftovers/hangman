@@ -3,7 +3,7 @@
 type HangmanSvgProps = {
     numberWrongLetters:number
 }
-let gameIsActive:boolean = true;
+let gameNotLost:boolean = true;
 
 
 
@@ -15,9 +15,9 @@ const sadMouth = <path id="sadMouth" d="M103 65.9927C106.279 63.4315 108.258 63.
 
 function HangmanSvg({numberWrongLetters}:HangmanSvgProps) {
 if (numberWrongLetters >= 6) {
-    gameIsActive = false;
+    gameNotLost = false;
 }
-const mouth = gameIsActive ? happyMouth : sadMouth;
+const mouth = gameNotLost ? happyMouth : sadMouth;
 
 if (numberWrongLetters > 0){
     bodyParts[--numberWrongLetters] = 1; 

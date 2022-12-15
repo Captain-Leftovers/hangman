@@ -22,11 +22,11 @@
     min-height: 50px;
     border: 2px solid black;
     cursor:pointer;
-    background-color: #884b04;
+    background-color: #c59024;
 }
 
 .keys.active {
-    background-color:#7f591a;
+    background-color:#8f5c15;
    
 }
 

@@ -5,18 +5,24 @@ const lettersArr:string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "
 type LettersProps = {
     correctLetters:string[]
     incorrectLetters:string[]
+    disabled: boolean
     addLetter:(letter:string)=> void
 }
 
 
-function Letters({correctLetters, incorrectLetters, addLetter}:LettersProps) {
+function Letters({correctLetters, incorrectLetters, disabled = false, addLetter}:LettersProps) {
 
     return (
        <div className={LettersCSS.keyboard}>
             {lettersArr.map((key)=>{
                 const isActive = correctLetters.includes(key);
                 const isInactive = incorrectLetters.includes(key)
-                return <button onClick={()=>addLetter(key)} className={`${LettersCSS.keys} ${isActive ? LettersCSS.active : ""} ${isInactive ? LettersCSS.inactive : ""}`} key={key}>{key}</button>
+                return <button 
+                            onClick={()=>addLetter(key)} 
+                            className={`${LettersCSS.keys} ${isActive ? LettersCSS.active : ""} ${isInactive ? LettersCSS.inactive : ""}`} 
+                            key={key}
+                            disabled={isInactive || isActive || disabled}    
+                       >{key}</button>
             })}
        </div>
     )
