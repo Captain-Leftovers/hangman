@@ -4,16 +4,25 @@ import { KeyboardEvent, useCallback, useEffect, useState } from "react"
 import archive from "./assets/simpleWords.json"
 import GuessingWord from "./components/GuessingWord/GuessingWord"
 import HangmanSvg from "./components/HangmanSvg/HangmanSvg"
-
+import ReloadButton from "./components/ReloadButton/ReloadButton"
 
 function App() {
-  
   const [wordFromArchive, setWordFromArchive] = useState(() => {
-     return archive[Math.floor(Math.random() * archive.length)].toLowerCase()
+     return newWord()
   })
   
   
   const [usedLetters, setUsedLetters] = useState<string[]>([]) 
+
+  function newWord() {
+    return archive[Math.floor(Math.random() * archive.length)].toLowerCase()
+  }
+
+  function newGameFn(){
+    setWordFromArchive(newWord())
+    setUsedLetters([])
+  }
+  
 
   const incorrectLetters = usedLetters.filter((letter) => !wordFromArchive.includes(letter));
 
@@ -25,7 +34,7 @@ function App() {
   const addLetter= useCallback((letter:string) => {
     // letter = letter.toLowerCase();
     if (usedLetters.includes(letter) || gameIsLost || gameIsWon) return
-
+<ReloadButton/>
     setUsedLetters(oldLetters => [...oldLetters, letter])
   },[usedLetters])
 
@@ -59,12 +68,16 @@ function App() {
       <HangmanSvg numberWrongLetters={incorrectLetters.length}/>
       <GuessingWord usedLetters={usedLetters} showWord={gameIsLost}
         wordFromArchive={wordFromArchive} />
-      <Letters 
+      
+      {gameIsLost || gameIsWon
+       ? <ReloadButton newGame={newGameFn}/> 
+      : <Letters 
       correctLetters={correctLetters} 
       incorrectLetters={incorrectLetters}
       addLetter={addLetter}
       disabled={disabled}
       />
+      }
     </div>
   )
 }
